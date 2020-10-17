@@ -1,0 +1,48 @@
+\def\AtSOne#1\csod{%
+	\begin{array}{c|}
+		\hline
+		#1\\
+		\hline
+	\end{array}
+}%
+\def\AtSTwo#1,#2\csod{%
+	\begin{array}{c|c|}
+		\hline
+		#1 & #2\\
+		\hline
+	\end{array}
+}%
+\def\AtSThree#1,#2,#3\csod{%
+	\begin{array}{c|c|c|}
+		\hline
+		#1 & #2 & #3\\
+		\hline
+	\end{array}
+}%
+\def\AtSFour#1,#2,#3,#4\csod{%
+	\begin{array}{c|c|c|c|}
+		\hline
+		#1 & #2 & #3 & #4\\
+		\hline
+	\end{array}
+}%
+\def\AtSFive#1,#2,#3,#4,#5\csod{%
+	\begin{array}{c|c|c|c|c|}
+		\hline
+		#1 & #2 & #3 & #4 & #5\\
+		\hline
+	\end{array}
+}%
+\def\AtSSix#1,#2,#3,#4,#5,#6\csod{%
+	\begin{array}{c|c|c|c|c|c|}
+		\hline
+		#1 & #2 & #3 & #4 & #5 & #6\\
+		\hline
+	\end{array}
+}
+\newcommand{\SOne}[1]{\AtSOne#1\csod}
+\newcommand{\STwo}[1]{\AtSTwo#1\csod}
+\newcommand{\SThree}[1]{\AtSThree#1\csod}
+\newcommand{\SFour}[1]{\AtSFour#1\csod}
+\newcommand{\SFive}[1]{\AtSFive#1\csod}
+\newcommand{\SSix}[1]{\AtSSix#1\csod}

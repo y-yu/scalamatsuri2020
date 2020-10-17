@@ -1,0 +1,13 @@
+\newenvironment{notes}
+  {%
+    \begin{xlrbox}{NotesBox}
+    \begin{minipage}{.95\textwidth}
+    \small\rmfamily\mcfamily
+    \begin{itemize}
+    \setlength{\itemindent}{0em}
+    \setlength{\footnotesep}{5mm}
+  }{%
+    \end{itemize}
+    \end{minipage}
+    \end{xlrbox}
+    \note{\theNotesBox}}

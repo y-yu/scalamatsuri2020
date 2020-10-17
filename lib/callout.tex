@@ -1,0 +1,56 @@
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.callouts} 
+
+\pgfkeys{%
+    /calloutquote/.cd,
+    width/.code                   = {\def\calloutquotewidth{#1}},
+    position/.code                = {\def\calloutquotepos{#1}}, 
+    author/.code                  = {\def\calloutquoteauthor{#1}},
+    at/.code                      = {\def\calloutquoteat{#1}},
+    sign/.code                    = {\def\calloutquotesign{#1}},
+    /calloutquote/.unknown/.code  = {\let\searchname=\pgfkeyscurrentname
+                                      \pgfkeysalso{\searchname/.try=#1,                        
+                                      /tikz/\searchname/.retry=#1},\pgfkeysalso{\searchname/.try=#1,
+                                      /pgf/\searchname/.retry=#1}
+                                    }
+}
+
+\makeatletter
+
+\newsavebox\temp@simple@callout@author@box
+\newcommand\calloutquote[2][]{%
+  \pgfkeys{/calloutquote/.cd,
+    width    = 5cm,
+    position = {(0.5,-0.2)},
+    at       = {(0,0)},
+    author   = {},
+    sign     = {+}
+  }%
+  \pgfqkeys{/calloutquote}{#1}%
+  \sbox{\temp@simple@callout@author@box}{\mbox{%
+    \begin{tabular}{l}
+      \calloutquoteauthor%
+    \end{tabular}
+  }}%
+  \node [rectangle callout,callout relative pointer={\calloutquotepos},align=center,text width=\calloutquotewidth,/calloutquote/.cd,
+     #1] (tmpcall) at \calloutquoteat {#2};
+  \node at ($ (tmpcall.pointer) - (-\calloutquotesign0.5\wd\temp@simple@callout@author@box,0.7\ht\temp@simple@callout@author@box) $) {\calloutquoteauthor};
+}
+
+\newsavebox\temp@simple@callout@box
+\newcommand{\simplecallout}[4][{}]{%
+  \sbox{\temp@simple@callout@box}{\mbox{%
+    \begin{tabular}{l}
+      #4%
+    \end{tabular}
+  }}%
+  \begin{center}%
+    \begin{tikzpicture}%
+      \calloutquote[width=1.05\wd\temp@simple@callout@box,position={(#2.5,-0.2)},fill=#3,rounded corners,author={#1},sign=#2]{
+        #4%
+      }%
+    \end{tikzpicture}%
+  \end{center}
+}
+
+\makeatother

@@ -1,0 +1,10 @@
+\newcommand\ballcircle[1]{%
+  {%
+    \usebeamercolor{enumerate item}%
+    \tikzset{beameritem/.style={circle,inner sep=0,minimum size=2ex,text=enumerate item.bg,fill=enumerate item.fg,font=\footnotesize}}%
+    \tikz[baseline=(n.base)]\node(n)[beameritem]{\sffamily#1};%
+  }%
+}
+\newcommand\ballref[1]{%
+  \ballcircle{\ref{#1}}%
+}
