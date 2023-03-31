@@ -7,3 +7,4 @@ It was used at ScalaMatsuri2020.
 
 - [Slide](https://y-yu.github.io/scalamatsuri2020/scalamatsuri2020.pdf)
 - [Handout with Japanese comments](https://y-yu.github.io/scalamatsuri2020/scalamatsuri2020_without_animation.pdf)
+- [YouTube](https://www.youtube.com/watch?v=AxdKpXsvUxk)
